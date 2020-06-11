@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="01f128e3-bb1c-4e7f-827f-8d256db7db1b" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1bQ1SiSgJKF5O6wuXIURUbUcduE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Users\ACER\Desktop\black-dashboard-angular-master\black-dashboard-angular-master\node_modules\typescript\lib" />
+  </component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="Tests (black-dashboard-angular)" type="JavaScriptTestRunnerKarma">
+      <config-file value="$PROJECT_DIR$/src/karma.conf.js" />
+      <working-directory value="$PROJECT_DIR$" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="E2E Tests (black-dashboard-angular-e2e)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/e2e/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="01f128e3-bb1c-4e7f-827f-8d256db7db1b" name="Default Changelist" comment="" />
+      <created>1588549504564</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588549504564</updated>
+      <workItem from="1588549507918" duration="5327000" />
+      <workItem from="1588556039107" duration="15175000" />
+      <workItem from="1588631360069" duration="5079000" />
+      <workItem from="1588641128857" duration="13495000" />
+      <workItem from="1588716030885" duration="10688000" />
+      <workItem from="1588737873329" duration="6031000" />
+      <workItem from="1588800329982" duration="17928000" />
+      <workItem from="1588855083279" duration="13008000" />
+      <workItem from="1588981890095" duration="9217000" />
+      <workItem from="1589022201876" duration="15172000" />
+      <workItem from="1589079172932" duration="7084000" />
+      <workItem from="1589156300334" duration="29013000" />
+      <workItem from="1589274475953" duration="5206000" />
+      <workItem from="1589333541353" duration="14179000" />
+      <workItem from="1589404751493" duration="2000" />
+      <workItem from="1589466672161" duration="2833000" />
+      <workItem from="1589518282224" duration="22355000" />
+      <workItem from="1589553686229" duration="6568000" />
+      <workItem from="1589606226954" duration="18701000" />
+      <workItem from="1589715345696" duration="260000" />
+      <workItem from="1589717306705" duration="939000" />
+      <workItem from="1589719335829" duration="3144000" />
+      <workItem from="1591353397802" duration="2401000" />
+      <workItem from="1591447131158" duration="7837000" />
+      <workItem from="1591463434132" duration="19574000" />
+      <workItem from="1591616681308" duration="17376000" />
+      <workItem from="1591662337387" duration="255000" />
+      <workItem from="1591797649480" duration="7086000" />
+      <workItem from="1591823392224" duration="10891000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/../../angular-material-dashboard-master/angular-material-dashboard-master/node_modules/karma/config.tpl.js" />
+      </list>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588650025903">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="413" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.768@0.0.1366.768" timestamp="1588650025903" />
+    <state x="329" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1589066830306">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="329" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.768@0.0.1366.768" timestamp="1589066830306" />
+    <state x="339" y="172" key="run.anything.popup" timestamp="1589246177166">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="339" y="172" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1589246177166" />
+    <state x="339" y="37" width="672" height="676" key="search.everywhere.popup" timestamp="1589622691301">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="339" y="37" width="672" height="676" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1589622691301" />
+  </component>
+</project>

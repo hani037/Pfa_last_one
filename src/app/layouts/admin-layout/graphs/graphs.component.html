@@ -1,0 +1,53 @@
+<mat-dialog-content id="aa"  style="background:rgba(60, 60, 60, 0.79) " >
+  <!--<h3 style="text-align:center;color: black">MASVS Compliance Diagram - Android
+  </h3>
+  <div style="display: block">
+    <canvas baseChart
+            [datasets]="demoradarChartData"
+            [labels]="demoradarChartLabels"
+            [chartType]="radarChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+  </div>
+  -->
+  <mat-spinner style="margin-left: auto;margin-right: auto" *ngIf="sel==false" ></mat-spinner>
+
+  <div *ngIf="sel==true">
+  <div style="margin-bottom: 5px;margin-top: 10px">
+    <h1  style="margin-right: auto;margin-left: auto;">Score: {{score[0].Score }}</h1>
+
+    <div id="chartContainer" style="width:640px; height: 400px;margin-right: auto;margin-left: auto;margin-bottom: 20px"></div>
+    <div id="chartContainer2" style="width:640px; height: 400px;margin-right: auto;margin-left: auto"></div>
+
+  </div>
+  <div  style="background:rgba(60, 60, 60, 0.79);margin-right: 10px;margin-left: 10px"  class="bs-example">
+    <h1 style="margin-right: auto;margin-left: auto" >masvs compliance table
+    </h1>
+    <table id="table" class="table">
+      <thead style="background-color: #d1d1c7;color: white" class="thead-dark">
+      <tr>
+        <th style="color: white" width="33%"></th>
+        <th style="color: white">P</th>
+        <th style="color: white">F</th>
+        <th style="color: white">N/A</th>
+        <th style="color: white">%</th>
+      </tr>
+      </thead>
+      <tbody class="tbl-content" *ngFor="let test of data.test"  cellpadding="0" style="color: black" cellspacing="0" border="0" style="background-color: #686868">
+      <tr>
+        <td style="color: grey" width="33%">V{{test._id.family_rank}}: {{test._id.family_description}}</td>
+        <td style="color: black">{{test.pass}}</td>
+        <td style="color: black">{{test.fail}}</td>
+        <td style="color: black">{{test.n_a}}</td>
+        <td style="color: black">{{test.percentage}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions style="background:rgba(60, 60, 60, 0.79)">
+
+  <button  mat-dialog-close (click)="export()" style="width: 150px;margin-right: auto;margin-left: auto;background-color: #1c1c1c" class="btn-secondary btn-fill btn btn-block "> Rapport</button>
+
+</mat-dialog-actions>

@@ -1,0 +1,29 @@
+<mat-dialog-content style="background:rgba(60, 60, 60, 0.79);width: 480px"  >
+  <div class="text-center" *ngIf="!is_edited">
+    <div *ngIf="sel==0">
+      <h2 style="color:white">conclusion</h2>
+      <h3 style="color:grey" *ngIf="comment!==''">{{comment}}</h3>
+      <h3 style="color:grey" *ngIf="comment==''">none</h3>
+      <button *ngIf="!auditService.audit_is_closing()" class="btn-secondary btn-fill btn  " (click)="edit()">Edit</button>
+    </div>
+    <div *ngIf="sel==1">
+  <textarea style="margin-top: 10px;background-color: grey" #test rows="3"
+            cols="50" [value]="data.comment"></textarea>
+      <button (click)="submit(test)"  class="btn-secondary btn-fill btn " style="margin-left: auto;margin-right: auto" mat-button  tabindex="-1">submit</button>
+    </div>
+  </div>
+  <div class="text-center" *ngIf="is_edited">
+    <div *ngIf="sel==0">
+      <h2 style="color:white">conclusion</h2>
+      <h3 style="color:grey" *ngIf="comment!==''">{{comment}}</h3>
+      <h3 style="color:grey" *ngIf="comment==''">none</h3>
+      <button *ngIf="!auditService.audit_is_closing()"  class="btn-secondary btn-fill btn  " (click)="edit()">Edit</button>
+    </div>
+    <div *ngIf="sel==1">
+  <textarea #test rows="3"
+            cols="40" [value]="comment"></textarea>
+      <button (click)="submit(test)" class="btn btn-fill btn-danger" style="margin-left: auto;margin-right: auto" mat-button  tabindex="-1">submit</button>
+    </div>
+  </div>
+</mat-dialog-content>
+

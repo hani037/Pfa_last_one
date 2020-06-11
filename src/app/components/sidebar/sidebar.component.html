@@ -1,0 +1,44 @@
+<div style="margin-bottom: 0px" class="logo">
+  <a  class="simple-text logo-mini">
+    <div class="logo-img">
+      <i class="fas fa-home fa-2x"></i>    </div>
+  </a>
+  <a (click)="route.navigate(['/test'])" class="simple-text logo-normal">
+    HOME
+  </a>
+</div>
+<div style="margin-top: 0;
+" class="sidebar-wrapper">
+  <ul style="margin-bottom: 80px" class="nav">
+    <div *ngIf="route.url!=='/security_req'">
+    <li
+      routerLinkActive="active"
+      *ngFor="let menuItem of menuItems"
+      class="{{ menuItem.class }} nav-item"
+    >
+      <a [routerLink]="[menuItem.path]">
+        <i class="fas  {{ menuItem.icon }}"></i>
+        <p>{{ menuItem.title }}</p>
+      </a>
+    </li>
+    </div>
+    <div  *ngIf="route.url==='/security_req'">
+
+    <li #element style="margin-bottom: 0px" [ngClass]="{'active':nb==i}" *ngFor="let test of tests;let i=index" class="nav-item"><a (click)="navigate(i)">
+      <p  style="margin-left: 10px;margin-bottom: 0px">V{{test._id.family_rank}}:{{test._id.family_name}}</p>
+      <div *ngFor="let tst of test.requ;let j=index">
+        <p *ngIf="nb===i" style="margin-right: 20px;font-size: xx-small;">
+          MSTG-{{test._id.family_name}}-{{tst.requ_rank}}
+          <i *ngIf="tst.requRes_pass==true" class="fa fa-check"></i>
+          <i *ngIf="tst.requRes_pass===false" class="fas fa-times"></i>
+          <i *ngIf="tst.requRes_pass==null" class="fas fa-ban"></i>
+        </p>
+
+      </div>
+
+
+    </a>
+    </li>
+    </div>
+  </ul>
+</div>

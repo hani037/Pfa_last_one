@@ -1,0 +1,295 @@
+
+  <!--
+    <div  >
+      <h1  *ngIf="sel==1"   class="text-center">
+        Testing information Android
+      </h1>
+        <h1 *ngIf="sel==2"  class="text-center">
+          Client Representatives and Contact Information
+        </h1>
+
+
+
+
+            <div class="row">
+              <div class="col-md-4 col-md-offset-4 col-sm6-6 col-sm-offset-3 ">
+
+                <form *ngIf="sel==1"  action="" method="post"  #f="ngForm" class="login-form" ngNativeValidate>
+                  <div style="margin-bottom: 5px">
+                    <label style="color: #2a8eba">Application Name</label>
+
+                    <textarea
+                      style="background-color: lightblue"
+                      name="appname"
+                               rows="3"
+                              cols="2000"
+                               ngModel #appname="ngModel" type="text"  class="form-control"required>
+                                                </textarea>
+
+                  </div>
+                  <div style="margin-bottom: 5px">
+                    <label style="color: #2a8eba">Google Play Store Link </label>
+
+                    <textarea
+                      style="background-color: lightblue"
+                      name="googlelink"
+                      rows="3"
+                      cols="2000"
+                      ngModel #googlelink="ngModel" type="text"  class="form-control"required>
+                                                </textarea>
+
+                  </div>
+                  <div style="margin-bottom: 5px">
+                    <label style="color:#2a8eba">Filename </label>
+
+                    <textarea
+                      style="background-color: lightblue"
+                      name="filename"
+                      rows="3"
+                      cols="2000"
+                      ngModel #filename="ngModel" type="text"  class="form-control"required>
+                                                </textarea>
+
+                  </div>
+                  <div style="margin-bottom: 5px">
+                    <label style="color: #2a8eba">Version </label>
+
+                    <textarea
+                      style="background-color:lightblue"
+                      name="version"
+                      rows="3"
+                      cols="2000"
+                      ngModel #version="ngModel" type="text"  class="form-control"required>
+                                                </textarea>
+
+                  </div>
+                  <div style="margin-bottom: 5px">
+                    <label style="color: #2a8eba">SHA256 Hash of APK
+                      (Can be obtained by using shasum, openssl or sha256sum) </label>
+
+                    <textarea
+                      style="background-color: lightblue"
+                      name="hash"
+                      rows="3"
+                      cols="2000"
+                      ngModel #hash="ngModel" type="text"  class="form-control"required>
+                                                </textarea>
+
+                  </div>
+                  <button style="margin-bottom: 30px" (click)="next()" type="submit" [disabled]="f.invalid" class="btn btn-block btn-fill btn-success">NEXT</button>
+                </form>
+                <form *ngIf="sel==2"  action="" method="post" (ngSubmit)="submit()"  #f1="ngForm" class="login-form" ngNativeValidate>
+                  <div style="margin-bottom: 5px">
+                    <label style="color: #2a8eba">Name</label>
+
+                    <textarea
+                      style="background-color: lightblue"
+                      name="name"
+                      rows="3"
+                      cols="2000"
+                      ngModel #name="ngModel" type="text"  class="form-control"required>
+                                                </textarea>
+
+                  </div>
+                  <div style="margin-bottom: 5px">
+                    <label style="color: #2a8eba">Org</label>
+
+                    <textarea
+                      style="background-color: lightblue"
+                      name="org"
+                      rows="3"
+                      cols="2000"
+                      ngModel #org="ngModel" type="text"  class="form-control"required>
+                                                </textarea>
+
+                  </div>
+                  <div style="margin-bottom: 5px">
+                    <label style="color: #2a8eba">Title </label>
+
+                    <textarea
+                      style="background-color: lightblue"
+                      name="title"
+                      rows="3"
+                      cols="2000"
+                      ngModel #title="ngModel" type="text"  class="form-control"required>
+                                                </textarea>
+
+                  </div>
+                  <div style="margin-bottom: 5px">
+                    <label style="color: #2a8eba">Phone </label>
+
+                    <textarea
+                      style="background-color: lightblue"
+                      name="phone"
+                      rows="3"
+                      cols="2000"
+                      ngModel #phone="ngModel" type="text"  class="form-control"required>
+                                                </textarea>
+
+                  </div>
+                  <div style="margin-bottom: 5px">
+                    <label style="color: #2a8eba">E-mail</label>
+
+                    <textarea
+                      style="background-color: lightblue"
+                      name="email"
+                      rows="3"
+                      cols="2000"
+                      ngModel email #email="ngModel" type="email"  class="form-control"required>
+                                                </textarea>
+
+                  </div>
+                  <button style="margin-bottom: 30px" type="submit"  [disabled]="f1.invalid" mat-dialog-close class="btn btn-block btn-fill btn-danger">submit</button>
+                </form>
+
+              </div>
+            </div>
+          </div>
+
+  -->
+
+
+        <!--
+        <form   action="" method="post" (ngSubmit)="submit(f)"  #f="ngForm" class="login-form" ngNativeValidate>
+          <div style="margin-bottom: 5px">
+            <label style="color: #2a8eba">Audit title</label>
+
+            <textarea
+              style="background-color: lightblue;color: black"
+              name="audit_title"
+              rows="3"
+              cols="2000"
+              ngModel #audit_title="ngModel" type="text"  class="form-control"required>
+                                            </textarea>
+
+          </div>
+          <div style="margin-bottom: 5px">
+            <label style="color: #2a8eba">Level</label>
+            <select style="color: black" name="audit_level" ngModel #audit_level="ngModel" type="text"  class="form-control"required>
+              <option value="L1">L1</option>
+              <option value="L2">L2</option>
+              <option value="L1+R">L1+R</option>
+              <option value="L2+R">L2+R</option>
+            </select>
+          </div>
+          <button style="margin-bottom: 30px"  type="submit" [disabled]="f.invalid" mat-dialog-close class="btn btn-block btn-fill btn-success">Submit</button>
+        </form>
+        -->
+  <mat-dialog-content  >
+  <div style="margin-top: 0;margin-bottom: 0;width: 420px;" class="card card-3">
+              <div class="card-heading"></div>
+              <div *ngIf="sel==1" class="card-body">
+                <h2 style="color: #bbbae9" mat-dialog-title class="title">General testing informations</h2>
+
+                <form  action="" method="post" (ngSubmit)="next(f)"  #f="ngForm" class="login-form" ngNativeValidate>
+                  <div class="input-group">
+                    <input  ngModel #title="ngModel" type="text" required class="input--style-3" type="text" placeholder="Audit title" name="title">
+                  </div>
+                  <div >
+                    <label style="color: #d6d6d6;font-size: 17px">Level:</label>
+                    <select  style="color:black;border-color: white" name="level" ngModel #level="ngModel" type="text"  class="form-control"required>
+                      <option value="L1">L1</option>
+                      <option value="L2">L2</option>
+                      <option value="L1+R">L1+R</option>
+                      <option value="L2+R">L2+R</option>
+                    </select>
+                  </div>
+                  <div class="input-group" >
+                  <label style="color: #d6d6d6;font-size: 17px">MASVS VERSION: 1.1.4</label>
+
+                </div>
+                  <div style="display: none" >
+                    <label style="color: #d6d6d6;font-size:17px">ONLINE MASVS VERSION:</label>
+                    <a style="font-size: 17px;color: whitesmoke" href="https://github.com/OWASP/owasp-masvs/blob/1.1.4/Document/">https://github.com/OWASP/owasp-masvs/blob/1.1.4/Document/</a>
+                  </div>
+                  <div class="input-group" >
+                    <label style="color: #d6d6d6;font-size: 17px">MSTG VERSION: 1.1.3</label>
+                  </div>
+                  <div style="display: none" >
+                    <label style="color: #d6d6d6;font-size: 17px">ONLINE MSTG VERSION:</label>
+                    <a style="font-size: 17px;color: whitesmoke" href="https://github.com/OWASP/owasp-mstg/blob/1.1.3/Document/">https://github.com/OWASP/owasp-mstg/blob/1.1.3/Document/</a>
+                  </div>
+
+                  <div class="input-group">
+                    <input required ngModel #Client_Name="ngModel" type="text"  class="input--style-3"  placeholder="Client_Name" name="Client_Name">
+                  </div>
+                  <div class="input-group">
+                    <input  ngModel #Test_location="ngModel" type="text"  class="input--style-3"placeholder="Test_location" name="est_location">
+                  </div>
+                  <div style="display: none" class="input-group">
+                    <input  ngModel #Start_Date="ngModel" type="text"  class="input--style-3"  placeholder="Start Date" name="Start_Date">
+
+                  </div>
+                  <div style="display: none" class="input-group">
+                    <input  ngModel #Closing_Date="ngModel" type="text"  class="input--style-3"  placeholder="Closing_Date" name="Closing_Date">
+
+                  </div>
+                  <div class="input-group">
+                    <input  ngModel #Testing_Scope="ngModel" type="text"  class="input--style-3"  placeholder="Testing_Scope" name="Testing_Scope">
+                  </div>
+                  <div class="p-t-10">
+                    <button style="margin-left: 90px"  [disabled]="f.invalid"  class="btn btn--pill btn--green">Next</button>
+
+                  </div>
+                </form>
+              </div>
+
+
+    <div *ngIf="sel==2" class="card-body">
+      <h2 style="color: #bbbae9"  mat-dialog-title class="title">TESTING INFORMATION ANDROID</h2>
+
+      <form  action="" method="post" (ngSubmit)="next(f1)"  #f1="ngForm" class="login-form" ngNativeValidate>
+        <div class="input-group">
+          <input  ngModel #Application_Name="ngModel" type="text"  class="input--style-3" placeholder="Application Name" name="Application_Name">
+        </div>
+
+        <div class="input-group">
+          <input  ngModel #Google_PlayStore_Link="ngModel" type="text"  class="input--style-3"  placeholder="Google PlayStore Link" name="Google_PlayStore_Link">
+        </div>
+        <div class="input-group">
+          <input  ngModel #Filename="ngModel" type="text"  class="input--style-3"  placeholder="Filename" name="Filename">
+        </div>
+        <div class="input-group">
+          <input  ngModel #Version="ngModel" type="text"  class="input--style-3" placeholder="Version" name="Version">
+        </div>
+        <div class="input-group">
+          <input  ngModel #SHA256_HASH_OF_APK="ngModel" type="text"  class="input--style-3"  placeholder="SHA256 HASH OF APK" name="SHA256_HASH_OF_APK">
+        </div>
+        <div class="p-t-10">
+          <button style="margin-left: 90px"   [disabled]="f1.invalid"  class="btn btn--pill btn--green">Next</button>
+
+        </div>
+      </form>
+    </div>
+    <div  *ngIf="sel==3" class="card-body">
+      <h2 style="color: #bbbae9" mat-dialog-title class="title">CLIENT REPRESENTATIVE AND CONTACT INFORMATION</h2>
+
+      <div style="margin-bottom: 20px" *ngFor="let control of representative_name.controls; index as i" >
+
+        <h3 style="margin-bottom: 5px">Client Representative {{i+1}} <i style="position: absolute;right: 5px" (click)="addrep()" class="fas fa-plus-circle"></i>
+        </h3>
+        <div class="input-group">
+          <input class="input--style-3  " type="text" placeholder="name"  [formControl]="representative_name.controls[i]">
+        </div>
+        <div class="input-group">
+          <input class="input--style-3  " type="email" placeholder="email"  [formControl]="representative_email.controls[i]">
+        </div>
+        <div class="input-group">
+          <input class="input--style-3  " type="text" placeholder="title"  [formControl]="representative_title.controls[i]">
+        </div>
+        <div class="input-group">
+          <input class="input--style-3  " type="text" placeholder="phone"  [formControl]="representative_phone.controls[i]">
+        </div>
+        <div class="input-group">
+          <input class="input--style-3  " type="text" placeholder="Organisation"  [formControl]="representative_org.controls[i]">
+        </div>
+
+
+      </div >
+      <button  mat-dialog-close [disabled]="representative_name.invalid||representative_email.invalid||representative_org.invalid||representative_phone.invalid||representative_title.invalid" style="margin-left: 90px;"  type="button" (click)="submit()"   class="btn btn--pill btn--green">Sumbit</button>
+
+    </div>
+            </div>
+
+  </mat-dialog-content>
+

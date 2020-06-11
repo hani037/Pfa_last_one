@@ -1,0 +1,481 @@
+
+<div style="margin-bottom: 0" class="content"   >
+  <!--    Change the image source '/images/default.jpg' with your favourite image.     -->
+  <h1 style="color: rgb(255,255,255)" *ngIf="sel===true"> <u style="color: rgba(255,255,255,0.73);text-shadow: 1px 1px ">level of verification: {{selected_level}} </u> </h1>
+
+
+  <!--   You can change the black color for the filter with those colors: blue, green, red, orange       -->
+
+  <div class="container">
+    <div style="display: flex">
+      <div *ngFor="let test of tests;let t=index"  style="flex: 1">
+        <circle-progress
+          [titleFontSize]="15"
+          [subtitleFontSize]="15"
+          [titleColor]="'white'"
+          [subtitleColor]=""
+          [subtitle]="progress(t)"
+          [percent]="percentage(t)"
+          [outerStrokeColor]="'white'"
+          [innerStrokeColor]="'grey'"
+          [animation]="true"
+          [animationDuration]="300"
+          [title]="'V'+test._id.family_rank"
+        ></circle-progress>
+
+      </div>
+    </div>
+    <h4 mat-dialog-title style="color: #bbbae9;margin-bottom: 10px;margin-top: 10px" class="text-center">
+      <u > {{title}}</u>    </h4>
+    <div  style="display: flex">
+      <div  style="flex: 1;margin-right: 10px;margin-top: auto;margin-bottom: auto">   <i   (click)="left()" style="color: whitesmoke;cursor: pointer"   class=" fa fa-angle-left fa-5x "></i>
+      </div>
+      <div style="flex: 50">
+        <div class="tbl-header">
+
+          <table class="container" cellpadding="0" cellspacing="0" border="0">
+            <thead>
+            <tr >
+              <th width="5%" >ID</th>
+              <th width="10%" >MSTG-ID</th>
+              <th  width=33%>Detailed Verification Requirement</th>
+              <th width="12%" >Status</th>
+              <th width="40%">options</th>
+            </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+
+          <table style="background-color: grey" cellpadding="0" style="color: black" cellspacing="0" border="0">
+            <mat-spinner style="margin-left: auto;margin-right: auto" *ngIf="isloading"></mat-spinner>
+
+
+              <tbody *ngIf="!isloading" >
+              <tr  *ngFor="let tst of test.requ" >
+                <td width="5%">{{test._id.family_rank}}.{{tst.requ_rank}}</td>
+                <td width="10%">MSTG-{{test._id.family_name}}-{{tst.requ_rank}} </td>
+                <td   width=33%>{{tst.requ_desctiption}}</td>
+                <td width="12%" *ngIf="!auditService.audit_is_closing()">
+                  <select class="form-control" style="border-color: white" (change)="change_pass($event,tst.requRes_id)" [value]="tst.requRes_pass" >
+                    <option style="background-color: white;color: #2c343b" value="null">N/A</option>
+                    <option style="background-color: white;color: #2c343b"value="true">Pass</option>
+                    <option  style="background-color: white;color: #2c343b"value="false">Fail</option>
+                  </select></td>
+                  <td width="12%" *ngIf="auditService.audit_is_closing()">
+                    <h5 *ngIf="tst.requRes_pass===true">Pass</h5>
+                    <h5 *ngIf="tst.requRes_pass===false">Fail</h5>
+                    <h5 *ngIf="tst.requRes_pass===null">N/A</h5>
+                  </td>
+                <td width="40%">
+                  <!--<input
+                    style="display: none"
+                    type="file" (change)="onFileChanged($event)"
+                    #fileInput>
+                  <button class="btn-block btn-fill btn btn-success" (click)="fileInput.click()">save</button>
+                  -->
+                  <button style="width: 95px;margin-right: 10px;padding: 10px;"  class=" btn-fill btn btn-secondary" (click)="info(tst.requ_procedure)" >procedures</button>
+                  <button style="width: 88px;margin-right: 10px;padding: 10px;"  class=" btn-fill btn btn-info" (click)="images(tst.requRes_id)" >evidences</button>
+                  <button  style="width: 100px;margin-right: 10px;padding: 10px;" class=" btn-fill btn btn-danger" (click)="change_commentaire(tst.requRes_id)" >Conclusion</button>
+                </td>
+              </tr>
+
+              </tbody>
+
+          </table>
+        </div>
+      </div>
+      <div style="flex: 1;margin-left: 10px;margin-top: auto;margin-bottom: auto">    <i (click)="right()" style="color: white;cursor: pointer"  class="fa fa-angle-right fa-5x "></i>
+      </div>
+
+    </div>
+
+
+    <!--
+    <h3 style="color: whitesmoke" class="text-center">
+      Resiliency against Reverse Engineering - Android   </h3>
+    <div style="margin-top: 20px" class="tbl-header">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>MSTG-ID</th>
+          <th width=25%>Detailed Verification Requirement</th>
+          <th>R</th>
+          <th>Status</th>
+          <th>Testing Procedure(s)</th>
+          <th>Screenshots</th>
+        </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="tbl-content">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tbody>
+       <div>
+        <tr style="background-color: #00bbff">
+          <td  >V1</td>
+          <td></td>
+          <td width=25%>Architecture, design and threat modelling</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td  >1.1</td>
+          <td>MSTG-ARCH-1 </td>
+          <td   width=25%>{{data1}}</td>
+          <td><i class="fa fa-check"></i></td>
+          <td><select>
+            <option>N/A</option>
+            <option>Pass</option>
+            <option>Fail</option>
+          </select></td>
+          <td><a (click)="info()" style="color: crimson">links</a></td>
+          <td>
+            <input
+              style="display: none"
+              type="file" (change)="onFileChanged($event)"
+              #fileInput>
+            <button class="btn-block btn-fill btn btn-danger" (click)="fileInput.click()">upload</button>
+            <button [disabled]="true" class="btn-block btn-fill btn btn-info" >Images</button>
+          </td>
+        </tr>
+        <tr>
+          <td  >1.1</td>
+          <td>MSTG-ARCH-1 </td>
+          <td   width=25%>{{data1}}</td>
+          <td><i class="fa fa-check"></i></td>
+          <td><select>
+            <option>N/A</option>
+            <option>Pass</option>
+            <option>Fail</option>
+          </select></td>
+          <td><a (click)="info()" style="color: crimson">links</a></td>
+          <td>
+            <input
+              style="display: none"
+              type="file" (change)="onFileChanged($event)"
+              #fileInput>
+            <button class="btn-block btn-fill btn btn-danger" (click)="fileInput.click()">upload</button>
+            <button [disabled]="true" class="btn-block btn-fill btn btn-info" >Images</button>
+          </td>
+        </tr>
+        <tr>
+          <td  >1.1</td>
+          <td>MSTG-ARCH-1 </td>
+          <td   width=25%>{{data1}}</td>
+          <td><i class="fa fa-check"></i></td>
+          <td><select>
+            <option>N/A</option>
+            <option>Pass</option>
+            <option>Fail</option>
+          </select></td>
+          <td><a (click)="info()" style="color: crimson">links</a></td>
+          <td>
+            <input
+              style="display: none"
+              type="file" (change)="onFileChanged($event)"
+              #fileInput>
+            <button class="btn-block btn-fill btn btn-danger" (click)="fileInput.click()">upload</button>
+            <button [disabled]="true" class="btn-block btn-fill btn btn-info" >Images</button>
+          </td>
+        </tr>
+        <tr>
+          <td  >1.1</td>
+          <td>MSTG-ARCH-1 </td>
+          <td   width=25%>{{data1}}</td>
+          <td><i class="fa fa-check"></i></td>
+          <td><select>
+            <option>N/A</option>
+            <option>Pass</option>
+            <option>Fail</option>
+          </select></td>
+          <td><a (click)="info()" style="color: crimson">links</a></td>
+          <td>
+            <input
+              style="display: none"
+              type="file" (change)="onFileChanged($event)"
+              #fileInput>
+            <button class="btn-block btn-fill btn btn-danger" (click)="fileInput.click()">upload</button>
+            <button [disabled]="true" class="btn-block btn-fill btn btn-info" >Images</button>
+          </td>
+        </tr>
+        <tr>
+          <td  >1.1</td>
+          <td>MSTG-ARCH-1 </td>
+          <td   width=25%>{{data1}}</td>
+          <td><i class="fa fa-check"></i></td>
+          <td><select>
+            <option>N/A</option>
+            <option>Pass</option>
+            <option>Fail</option>
+          </select></td>
+          <td><a (click)="info()" style="color: crimson">links</a></td>
+          <td>
+            <input
+              style="display: none"
+              type="file" (change)="onFileChanged($event)"
+              #fileInput>
+            <button class="btn-block btn-fill btn btn-danger" (click)="fileInput.click()">upload</button>
+            <button [disabled]="true" class="btn-block btn-fill btn btn-info" >Images</button>
+          </td>
+        </tr>
+</div>
+        </tbody>
+      </table>
+    </div>
+-->
+  <!--  <div style="display: flex;margin-left: 50px;margin-right:50px ">
+      <div style="flex: 4">
+        <div style="margin-top: 25px" class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Definition</th>
+            </tr>
+            </thead>
+          </table>
+        </div >
+
+        <div >
+          <table  cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+            <tr>
+              <td>Pass</td>
+              <td>Requirement is applicable to mobile App and implemented according to best practices.</td>
+            </tr>
+            <tr>
+              <td>Fail</td>
+              <td>Requirement is applicable to mobile App but not fulfilled. </td>
+            </tr>
+            <tr>
+              <td>N/A</td>
+              <td>Requirement is not applicable to mobile App</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <div style="flex: 2;margin-left: 10px">
+        <div style="margin-top: 25px" class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Definition</th>
+            </tr>
+            </thead>
+          </table>
+        </div >
+
+        <div >
+          <table  cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+            <tr>
+              <td>LEVEL 1</td>
+              <td>Requirement is applicable to mobile App and implemented according to best practices.</td>
+            </tr>
+            <tr>
+              <td>LEVEL 2</td>
+              <td>Requirement is applicable to mobile App but not fulfilled. </td>
+            </tr>
+            <tr>
+              <td>R</td>
+              <td>Requirement is not applicable to mobile App</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      -->
+
+
+
+
+
+
+
+
+<!--
+<div style="display: flex">
+<div style="flex: 1">
+
+<div style="margin-right: 250px"  class="content">
+  <div class="subscribe">
+
+    <div class="row">
+      <div class=" ">
+
+        <form  action="" method="post" (ngSubmit)="onSubmit(f)" #f="ngForm" class="login-form" ngNativeValidate>
+          <div style="margin-bottom: 5px">
+            <label style="color: whitesmoke;margin-right: 10px" >ID</label>
+            <select ngModel #level="ngModel" required name="level" class="db-select md-form">
+              <option  value="single">HIGH</option>
+              <option value="good">GOOD</option>
+              <option value="info">INFO</option>
+            </select>
+          </div>
+          <div style="margin-bottom: 5px">
+            <label style="color: whitesmoke;margin-right: 10px" >MSTG-ID</label>
+            <select ngModel #level="ngModel" required name="level" class="db-select md-form">
+              <option  value="single">HIGH</option>
+              <option value="good">GOOD</option>
+              <option value="info">INFO</option>
+            </select>
+          </div>
+          <div style="margin-bottom: 5px">
+            <label style="color: whitesmoke">DESCRIPTION:</label>
+            <h3 style="color: white">A high-level architecture for the mobile app and all connected remote services has been defined and security has been addressed in that architecture.</h3>
+
+          </div>
+          <div style="margin-bottom: 5px">
+            <label style="color: whitesmoke">Testing Procedure(s):</label>
+            <h3 style="color: white">A high-level architecture for the mobile app and all connected remote services has been defined and security has been addressed in that architecture.</h3>
+
+          </div>
+
+
+
+          <div *ngIf="!type.invalid" style="margin-bottom: 5px">
+            <label *ngIf="type.value=='string'" style="color: whitesmoke">string</label>
+            <label *ngIf="type.value=='regex'" style="color: whitesmoke">regex</label>
+            <textarea  name="test"
+                       rows="2"
+                       ngModel #test="ngModel" type="test"  class="form-control"required>
+                                        </textarea>
+
+          </div>
+          <div style="margin-bottom: 5px">
+            <label style="color: whitesmoke">cvss</label>
+            <textarea  name="cvss"
+                       rows="1"
+                       ngModel #cvss="ngModel" type="test"  class="form-control"required>
+                                        </textarea>
+
+          </div>
+          <div style="margin-bottom: 5px">
+            <label style="color: whitesmoke">cwe</label>
+            <textarea  name="cwe"
+                       rows="1"
+                       ngModel #cwe="ngModel" type="test"  class="form-control"required>
+                                        </textarea>
+
+          </div>
+
+
+          <div style="margin-bottom: 5px">
+            <label style="color: whitesmoke">owasp-mstg</label>
+            <textarea  name="owasp_mstg"
+                       rows="1"
+                       ngModel #owasp_mstg="ngModel" type="test"  class="form-control"required>
+                                        </textarea>
+
+          </div>
+          <button style="margin-bottom: 30px" type="submit" [disabled]="f.invalid" class="btn btn-block btn-fill btn-danger">submit</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<div style="flex: 1">
+
+<div style="margin-right: 250px"  class="content">
+  <div class="subscribe">
+
+    <div class="row">
+      <div class=" ">
+
+        <form  action="" method="post" (ngSubmit)="onSubmit(f)" #f="ngForm" class="login-form" ngNativeValidate>
+          <div style="margin-bottom: 5px">
+            <label style="color: whitesmoke">DESCRIPTION</label>
+
+            <textarea  name="description"
+                       rows="3"
+                       ngModel #description="ngModel" type="test"  class="form-control"required>
+                                        </textarea>
+
+          </div>
+          <div style="margin-bottom: 5px">
+            <label style="color: whitesmoke;margin-right: 10px" >TYPE:</label>
+            <select ngModel #type="ngModel" required name="type"  class="db-select md-form">
+              <option value="string">String</option>
+              <option value="regex">Regex</option>
+            </select>
+
+          </div>
+          <div style="margin-bottom: 5px">
+            <label style="color: whitesmoke;margin-right: 10px" >LEVEL:</label>
+            <select ngModel #level="ngModel" required name="level" class="db-select md-form">
+              <option  value="single">HIGH</option>
+              <option value="good">GOOD</option>
+              <option value="info">INFO</option>
+            </select>
+          </div>
+          <div *ngIf="!type.invalid" style="margin-bottom: 5px">
+            <label *ngIf="type.value=='string'" style="color: whitesmoke">string</label>
+            <label *ngIf="type.value=='regex'" style="color: whitesmoke">regex</label>
+            <textarea  name="test"
+                       rows="2"
+                       ngModel #test="ngModel" type="test"  class="form-control"required>
+                                        </textarea>
+
+          </div>
+          <div style="margin-bottom: 5px">
+            <label style="color: whitesmoke">cvss</label>
+            <textarea  name="cvss"
+                       rows="1"
+                       ngModel #cvss="ngModel" type="test"  class="form-control"required>
+                                        </textarea>
+
+          </div>
+          <div style="margin-bottom: 5px">
+            <label style="color: whitesmoke">cwe</label>
+            <textarea  name="cwe"
+                       rows="1"
+                       ngModel #cwe="ngModel" type="test"  class="form-control"required>
+                                        </textarea>
+
+          </div>
+
+
+          <div style="margin-bottom: 5px">
+            <label style="color: whitesmoke">owasp-mstg</label>
+            <textarea  name="owasp_mstg"
+                       rows="1"
+                       ngModel #owasp_mstg="ngModel" type="test"  class="form-control"required>
+                                        </textarea>
+
+          </div>
+          <button style="margin-bottom: 30px" type="submit" [disabled]="f.invalid" class="btn btn-block btn-fill btn-danger">submit</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+-->
+
+  </div>
+  <div *ngIf="!auditService.audit_is_closing()">
+    <button style="margin-left: 350px;margin-right: 10px" (click)="submit()"  class="btn-info btn-fill btn  "> Diagrams</button>
+    <button  (click)="close_audit()"  class="btn-danger btn-fill btn  "> close_audit</button>
+
+  </div>
+  <div *ngIf="auditService.audit_is_closing()" >
+    <button style="margin-left: 430px;margin-right: 10px" (click)="submit()"  class="btn-info btn-fill btn  "> Diagrams</button>
+
+  </div>
+
+</div>

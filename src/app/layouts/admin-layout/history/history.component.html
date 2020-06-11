@@ -1,0 +1,75 @@
+<div class="content" style="margin-top: 45px">
+  <h1 class="text-center">History</h1>
+  <ul  class="list-group">
+
+    <!--Navbar-->
+    <li style="background-color: #2c343b;" class="navbar navbar-expand-lg navbar-dark teal lighten-2 mb-4">
+
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="#">List Of Audits</a>
+
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Search form -->
+        <form  class="form-inline ml-auto">
+          <div class="md-form my-0">
+            <select style="color:white;border-color: white;margin-right: 10px;background: rgba(128,128,128,0.04)" name="level" ngModel #level="ngModel" type="text" class="form-control" required>
+              <option style="color: grey;" value="" disabled selected>search by </option>
+              <option style="color: black"  value="title">title</option>
+              <option style="color: black" value="level">level</option>
+              <option style="color: black" value="client name">client name</option>
+
+            </select>
+            <input style="border-color: white" #my_input   class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          </div>
+        </form>
+      </div>
+      <!-- Collapsible content -->
+
+    </li>
+    <!--/.Navbar-->
+    <mat-spinner style="margin-left: auto;margin-right: auto" *ngIf="sel==false" ></mat-spinner>
+  <div *ngIf="sel==true&&audits.length>=1">
+    <div class="tbl-header">
+
+      <table class="container" cellpadding="0" cellspacing="0" border="0">
+        <thead>
+        <tr>
+          <th width="20%">title</th>
+          <th width="20%">level</th>
+          <th width="20%">client name</th>
+          <th width="20%">closed</th>
+          <th width="20%" >options</th>
+        </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="tbl-content">
+
+      <table style="background-color: grey" cellpadding="0" style="color: black" cellspacing="0" border="0">
+
+
+        <tbody *ngFor="let audit of audits|filter:my_input.value:level.value" >
+        <tr >
+          <td width="20%">{{audit.title}}</td>
+          <td width="20%">{{audit.level}} </td>
+          <td width="20%">{{audit.Client_Name}}</td>
+          <td *ngIf="audit.Closing_Date!==''" width="20%"> <i  class="fa fa-check fa-2x"></i></td>
+          <td *ngIf="audit.Closing_Date==''" width="20%"> <i  class="fa fa-times fa-2x"></i></td>
+
+          <td  width="20%" >
+            <button style="width: 80px;margin-right: 5px;padding: 10px;"  (click)="open_audit(audit._id,audit.level,audit.Closing_Date)" class="text-center btn btn-secondary btn-fill ">Open</button>
+            <button style="width: 80px;padding: 10px;" (click)="delete_audit(audit._id,audit.title)" class="btn btn-danger btn-fill ">Delete</button>
+          </td>
+        </tr>
+
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
+
+  </ul>
+</div>
